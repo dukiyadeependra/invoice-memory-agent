@@ -202,7 +202,7 @@ This sequence clearly demonstrates **learning over time** and improved automatio
 
 ## 📂 Project Structure
 
-
+````
 {
 invoice-memory-agent/
 ├── src/
@@ -222,7 +222,7 @@ invoice-memory-agent/
 ├── tsconfig.json
 └── README.md
 }
-
+````
 
 ---
 
