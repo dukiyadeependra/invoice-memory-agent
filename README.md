@@ -153,7 +153,6 @@ Duplicates:
 
 For every invoice, the system outputs:
 
-```json
 {
   "normalizedInvoice": {},
   "proposedCorrections": [],
