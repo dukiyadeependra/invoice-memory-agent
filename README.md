@@ -203,9 +203,9 @@ This sequence clearly demonstrates **learning over time** and improved automatio
 ## 📂 Project Structure
 
 invoice-memory-agent/
-├── src/
-│   ├── agent/
-│   │   └── invoiceProcessor.ts
+ ├── src/
+ │   ├── agent/
+ │   │   └── invoiceProcessor.ts
 │   ├── db/
 │   │   └── sqlite.ts
 │   └── index.ts
