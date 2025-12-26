@@ -153,6 +153,7 @@ Duplicates:
 
 For every invoice, the system outputs:
 
+```json
 {
   "normalizedInvoice": {},
   "proposedCorrections": [],
@@ -168,7 +169,7 @@ For every invoice, the system outputs:
     }
   ]
 }
-
+```
 ---
 
 ## ▶️ Demo Flow (Learning Over Time)
@@ -218,9 +219,6 @@ invoice-memory-agent/
 ├── package.json
 ├── tsconfig.json
 └── README.md
-
-yaml
-Copy code
 
 ---
 
