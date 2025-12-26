@@ -204,56 +204,46 @@ This sequence clearly demonstrates **learning over time** and improved automatio
 
 invoice-memory-agent/
 ├── src/
-│ ├── agent/
-│ │ └── invoiceProcessor.ts
-│ ├── db/
-│ │ └── sqlite.ts
-│ └── index.ts
+│   ├── agent/
+│   │   └── invoiceProcessor.ts
+│   ├── db/
+│   │   └── sqlite.ts
+│   └── index.ts
 ├── data/
-│ ├── invoices_extracted.json
-│ ├── human_corrections.json
-│ ├── purchase_orders.json
-│ └── delivery_notes.json
+│   ├── invoices_extracted.json
+│   ├── human_corrections.json
+│   ├── purchase_orders.json
+│   └── delivery_notes.json
 ├── db/
-│ └── memory.db
+│   └── memory.db
 ├── package.json
 ├── tsconfig.json
 └── README.md
+
 
 ---
 
 ## 🚀 How to Run
 
 ### Install dependencies
-```bash
 npm install
-Run the demo
-bash
-Copy code
+### Run the demo
 npx ts-node src/index.ts
-The SQLite database is created automatically at:
-
-bash
-Copy code
+### The SQLite database is created automatically at:
 db/memory.db
-🎥 Demo Video
+
+---
+
+## 🎥 Demo Video
 The submitted demo video shows:
+- Initial invoice processing with escalation
+- Application of human correction
+- Memory persistence across runs
+- Improved automation on subsequent invoices
+- Duplicate invoice detection and safe handling
 
-Initial invoice processing with escalation
-
-Application of human correction
-
-Memory persistence across runs
-
-Improved automation on subsequent invoices
-
-Duplicate invoice detection and safe handling
-
-🔮 Future Improvements
-Visualization of learned memory and confidence scores
-
-More granular confidence decay strategies
-
-Cross-vendor pattern generalization
-
-Weighted learning based on reviewer reliability
+## 🔮 Future Improvements
+- Visualization of learned memory and confidence scores
+- More granular confidence decay strategies
+- Cross-vendor pattern generalization
+- Weighted learning based on reviewer reliability
