@@ -170,6 +170,8 @@ For every invoice, the system outputs:
   ]
 }
 
+---
+
 ## ▶️ Demo Flow (Learning Over Time)
 
 The demo demonstrates how the system improves its decisions using stored memory.
