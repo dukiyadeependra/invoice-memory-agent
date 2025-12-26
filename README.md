@@ -170,101 +170,91 @@ For every invoice, the system outputs:
   ]
 }
 
+## ▶️ Demo Flow (Learning Over Time)
 
-▶️ Demo Flow (Learning Over Time)
-Step 1: First Invoice (INV-A-001)
+The demo demonstrates how the system improves its decisions using stored memory.
 
-Missing serviceDate
+### Step 1: First Invoice (INV-A-001)
+- The invoice from **Supplier GmbH** has a missing `serviceDate`.
+- The system detects the issue using heuristics (`Leistungsdatum` found in raw text).
+- Since no prior memory exists, the invoice is **escalated for human review**.
+- No automatic correction is applied.
 
-System detects issue
+### Step 2: Human Correction
+- A human reviewer fills the missing `serviceDate`.
+- The correction is **approved**.
+- The system stores a **vendor-specific memory** linking  
+  `Leistungsdatum → serviceDate` with an initial confidence score.
+- This memory is persisted in the SQLite database.
 
-Escalates for human review
+### Step 3: Second Invoice (INV-A-002)
+- Another invoice from **Supplier GmbH** is processed.
+- The system recalls the previously stored vendor memory.
+- The missing `serviceDate` is **auto-suggested and auto-applied**.
+- Confidence is increased due to prior successful learning.
+- The invoice is processed **without human review**.
 
-No memory exists
+This sequence clearly demonstrates **learning over time** and improved automation.
 
-Step 2: Human Correction
+---
 
-Human fills serviceDate
+## 📂 Project Structure
 
-Vendor memory stored in SQLite
-
-Step 3: Second Invoice (INV-A-002)
-
-Same vendor (Supplier GmbH)
-
-Memory recalled
-
-serviceDate auto-filled
-
-Higher confidence
-
-No human review required
-
-This demonstrates learning over time.
-
-📂 Project Structure
 invoice-memory-agent/
 ├── src/
-│   ├── agent/
-│   │   └── invoiceProcessor.ts
-│   ├── db/
-│   │   └── sqlite.ts
-│   └── index.ts
+│ ├── agent/
+│ │ └── invoiceProcessor.ts
+│ ├── db/
+│ │ └── sqlite.ts
+│ └── index.ts
 ├── data/
-│   ├── invoices_extracted.json
-│   ├── human_corrections.json
-│   ├── purchase_orders.json
-│   └── delivery_notes.json
+│ ├── invoices_extracted.json
+│ ├── human_corrections.json
+│ ├── purchase_orders.json
+│ └── delivery_notes.json
 ├── db/
-│   └── memory.db
+│ └── memory.db
 ├── package.json
 ├── tsconfig.json
 └── README.md
 
-🚀 How to Run
-Install dependencies
+yaml
+Copy code
+
+---
+
+## 🚀 How to Run
+
+### Install dependencies
+```bash
 npm install
-
-Run demo
+Run the demo
+bash
+Copy code
 npx ts-node src/index.ts
+The SQLite database is created automatically at:
 
-
-SQLite database is created automatically at:
-
+bash
+Copy code
 db/memory.db
-
 🎥 Demo Video
+The submitted demo video shows:
 
-A demo video is included in the submission email showing:
+Initial invoice processing with escalation
 
-First run escalation
+Application of human correction
 
-Human correction
+Memory persistence across runs
 
-Second run auto-application
+Improved automation on subsequent invoices
 
-Persistent memory across runs
-
-Duplicate detection
-
-✅ Key Highlights
-
-No machine learning required
-
-Fully explainable decisions
-
-Persistent, auditable memory
-
-Confidence reinforcement and decay
-
-Safe automation with human-in-the-loop
+Duplicate invoice detection and safe handling
 
 🔮 Future Improvements
+Visualization of learned memory and confidence scores
 
-Memory visualization dashboard
-
-Advanced confidence decay strategies
+More granular confidence decay strategies
 
 Cross-vendor pattern generalization
 
-Weighted human feedback
+Weighted learning based on reviewer reliability
